@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Diverum
 
 Automatización de procesos para empresas pequeñas y medianas
@@ -60,7 +59,5 @@ Para información comercial o de servicios, el contacto se gestiona fuera de est
 Este espacio es principalmente técnico y operativo.
 
 Sayr Olivares (twitter): @sayrolivares
-=======
 # websiteoficial
 Website oficial de Diverum
->>>>>>> 8f6911b9b4d7746dbd01c7a4732b7baab01b8b72

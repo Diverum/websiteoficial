@@ -1,7 +1,9 @@
-/* 
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+/* ═══════════════════════════════════════════
    DIVERUM — App.css
-   Healthcare Automation Landing Page
-   */
+   Uses CSS variables set by App.jsx for theming
+   ═══════════════════════════════════════════ */
 
 /* ── Reset & Base ── */
 *, *::before, *::after {
@@ -11,7 +13,7 @@
 }
 
 ::selection {
-  background: #0D7C66;
+  background: var(--c-accent);
   color: #fff;
 }
 
@@ -19,18 +21,12 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #F1F4F8;
+  background: var(--c-bg-alt);
 }
 ::-webkit-scrollbar-thumb {
-  background: #0D7C66;
+  background: var(--c-accent);
   border-radius: 10px;
 }
-::-webkit-scrollbar-thumb:hover {
-  background: #0a6652;
-}
-
-/* ── Typography ── */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
 
 /* ── Fade Animation ── */
 .fade-section {
@@ -45,7 +41,7 @@
 
 /* ── Buttons ── */
 .btn-primary {
-  background: #0D7C66;
+  background: var(--c-accent);
   color: #fff;
   padding: 14px 32px;
   border-radius: 8px;
@@ -60,22 +56,23 @@
   font-family: inherit;
 }
 .btn-primary:hover {
-  background: #0a6652;
+  filter: brightness(1.1);
   transform: translateY(-1px);
   box-shadow: 0 4px 16px rgba(13, 124, 102, 0.25);
 }
 .btn-primary:disabled {
   cursor: not-allowed;
+  opacity: 0.7;
 }
 
 .btn-secondary {
   background: transparent;
-  color: #0F2B3C;
+  color: var(--c-primary);
   padding: 14px 32px;
   border-radius: 8px;
   font-weight: 600;
   font-size: 15px;
-  border: 1.5px solid #E2E8F0;
+  border: 1.5px solid var(--c-border);
   cursor: pointer;
   transition: all 0.2s;
   display: inline-flex;
@@ -84,8 +81,8 @@
   font-family: inherit;
 }
 .btn-secondary:hover {
-  border-color: #0D7C66;
-  color: #0D7C66;
+  border-color: var(--c-accent);
+  color: var(--c-accent);
 }
 
 /* ── Tag Badge ── */
@@ -98,8 +95,8 @@
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.02em;
-  color: #0D7C66;
-  background: #E8F5F1;
+  color: var(--c-accent);
+  background: var(--c-accent-light);
 }
 
 /* ── Section Titles ── */
@@ -107,12 +104,12 @@
   font-family: 'Playfair Display', serif;
   font-weight: 700;
   font-size: clamp(28px, 4vw, 40px);
-  color: #0F2B3C;
+  color: var(--c-primary);
   margin-bottom: 12px;
 }
 .section-sub {
   font-size: 17px;
-  color: #546A7B;
+  color: var(--c-text-muted);
   max-width: 580px;
   margin: 0 auto;
   line-height: 1.6;
@@ -122,21 +119,27 @@
 input, textarea, select {
   width: 100%;
   padding: 12px 16px;
-  border: 1.5px solid #E2E8F0;
+  border: 1.5px solid var(--c-border);
   border-radius: 8px;
   font-size: 15px;
   font-family: inherit;
-  color: #0F2B3C;
-  background: #fff;
+  color: var(--c-text);
+  background: var(--c-surface);
   transition: border-color 0.2s;
   outline: none;
 }
 input:focus, textarea:focus, select:focus {
-  border-color: #0D7C66;
+  border-color: var(--c-accent);
+}
+input::placeholder, textarea::placeholder {
+  color: var(--c-text-muted);
 }
 textarea {
   resize: vertical;
   min-height: 80px;
+}
+select {
+  color: var(--c-text-muted);
 }
 
 /* ── Navbar ── */
@@ -152,8 +155,8 @@ textarea {
 }
 .mobile-dropdown {
   display: none;
-  background: #fff;
-  border-top: 1px solid #E2E8F0;
+  background: var(--c-surface);
+  border-top: 1px solid var(--c-border);
   padding: 16px 24px;
   flex-direction: column;
   gap: 12px;
@@ -165,50 +168,53 @@ textarea {
   cursor: pointer;
   font-size: 14px;
   font-weight: 500;
-  color: #546A7B;
+  color: var(--c-text-muted);
   font-family: inherit;
   transition: color 0.2s;
 }
 .nav-link:hover {
-  color: #0D7C66;
+  color: var(--c-accent);
 }
 
-.lang-toggle {
+.lang-toggle,
+.theme-toggle {
   background: none;
-  border: 1.5px solid #E2E8F0;
+  border: 1.5px solid var(--c-border);
   border-radius: 6px;
   padding: 6px 12px;
   cursor: pointer;
   font-size: 13px;
   font-weight: 600;
-  color: #546A7B;
+  color: var(--c-text-muted);
   display: flex;
   align-items: center;
   gap: 6px;
   font-family: inherit;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, color 0.2s;
 }
-.lang-toggle:hover {
-  border-color: #0D7C66;
+.lang-toggle:hover,
+.theme-toggle:hover {
+  border-color: var(--c-accent);
+  color: var(--c-accent);
 }
 
 /* ── Cards ── */
 .card {
-  background: #fff;
+  background: var(--c-surface);
   border-radius: 12px;
   padding: 32px;
-  border: 1px solid #E2E8F0;
+  border: 1px solid var(--c-border);
   transition: border-color 0.25s, box-shadow 0.25s;
 }
 .card:hover {
-  border-color: #0D7C66;
+  border-color: var(--c-accent);
   box-shadow: 0 8px 32px rgba(13, 124, 102, 0.08);
 }
 .card-icon {
   width: 44px;
   height: 44px;
   border-radius: 10px;
-  background: #E8F5F1;
+  background: var(--c-accent-light);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -218,12 +224,12 @@ textarea {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 10px;
-  color: #0F2B3C;
+  color: var(--c-primary);
 }
 .card-desc {
   font-size: 15px;
   line-height: 1.6;
-  color: #546A7B;
+  color: var(--c-text-muted);
 }
 
 /* ── Services Grid ── */
@@ -242,10 +248,10 @@ textarea {
   margin: 0 auto;
 }
 .step-card {
-  background: #fff;
+  background: var(--c-surface);
   border-radius: 12px;
   padding: 36px;
-  border: 1px solid #E2E8F0;
+  border: 1px solid var(--c-border);
   position: relative;
   overflow: hidden;
 }
@@ -256,15 +262,16 @@ textarea {
   font-size: 64px;
   font-weight: 700;
   font-family: 'Playfair Display', serif;
-  color: rgba(13, 124, 102, 0.06);
+  color: var(--c-accent-light);
   line-height: 1;
   pointer-events: none;
+  opacity: 0.5;
 }
 .step-num {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #0D7C66;
+  background: var(--c-accent);
   color: #fff;
   display: flex;
   align-items: center;
@@ -284,10 +291,11 @@ textarea {
 
 /* ── Compliance Banner ── */
 .compliance-banner {
-  background: #0F2B3C;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
   border-radius: 16px;
   padding: 40px 36px;
-  color: #fff;
+  color: var(--c-text);
 }
 .compliance-grid {
   display: grid;
@@ -303,11 +311,35 @@ textarea {
   align-items: center;
 }
 .form-card {
-  background: #fff;
+  background: var(--c-surface);
   border-radius: 16px;
   padding: 36px;
-  border: 1px solid #E2E8F0;
+  border: 1px solid var(--c-border);
   box-shadow: 0 8px 32px rgba(15, 43, 60, 0.06);
+}
+
+/* ── Footer ── */
+.footer-link {
+  font-size: 13px;
+  color: var(--c-text-muted);
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-link:hover {
+  color: var(--c-accent);
+}
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--c-text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-social:hover {
+  color: var(--c-accent);
 }
 
 /* ═══════════════════════════════════════════
@@ -333,7 +365,6 @@ textarea {
   .mobile-dropdown {
     display: flex;
   }
-
   .services-grid {
     grid-template-columns: 1fr;
   }

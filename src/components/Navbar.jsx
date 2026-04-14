@@ -1,14 +1,15 @@
 import { useState } from "react";
-import { Zap, Globe } from "lucide-react";
-import { palette } from "../content";
+import { Zap, Globe, Sun, Moon } from "lucide-react";
 
-export default function Navbar({ t, lang, setLang, scrollTo }) {
+export default function Navbar({ t, lang, setLang, theme, setTheme, scrollTo, p }) {
   const [mobileMenu, setMobileMenu] = useState(false);
 
   const handleNav = (id) => {
     scrollTo(id);
     setMobileMenu(false);
   };
+
+  const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
 
   return (
     <nav
@@ -18,9 +19,10 @@ export default function Navbar({ t, lang, setLang, scrollTo }) {
         left: 0,
         right: 0,
         zIndex: 100,
-        background: "rgba(250,251,252,0.92)",
+        background: p.navBg,
         backdropFilter: "blur(12px)",
-        borderBottom: `1px solid ${palette.border}`,
+        borderBottom: `1px solid ${p.border}`,
+        transition: "background 0.3s, border-color 0.3s",
       }}
     >
       <div
@@ -41,7 +43,7 @@ export default function Navbar({ t, lang, setLang, scrollTo }) {
               width: 32,
               height: 32,
               borderRadius: 8,
-              background: palette.accent,
+              background: p.accent,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -54,7 +56,7 @@ export default function Navbar({ t, lang, setLang, scrollTo }) {
               fontFamily: "'Playfair Display', serif",
               fontWeight: 700,
               fontSize: 20,
-              color: palette.primary,
+              color: p.primary,
             }}
           >
             Diverum
@@ -68,19 +70,18 @@ export default function Navbar({ t, lang, setLang, scrollTo }) {
             ["process", t.nav.process],
             ["why", t.nav.why],
           ].map(([id, label]) => (
-            <button
-              key={id}
-              onClick={() => handleNav(id)}
-              className="nav-link"
-            >
+            <button key={id} onClick={() => handleNav(id)} className="nav-link">
               {label}
             </button>
           ))}
 
-          <button
-            onClick={() => setLang(lang === "en" ? "es" : "en")}
-            className="lang-toggle"
-          >
+          {/* Theme Toggle */}
+          <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle theme">
+            {theme === "light" ? <Moon size={14} /> : <Sun size={14} />}
+          </button>
+
+          {/* Language Toggle */}
+          <button onClick={() => setLang(lang === "en" ? "es" : "en")} className="lang-toggle">
             <Globe size={14} />
             {lang === "en" ? "ES" : "EN"}
           </button>
@@ -96,10 +97,10 @@ export default function Navbar({ t, lang, setLang, scrollTo }) {
 
         {/* Mobile Controls */}
         <div className="nav-mobile">
-          <button
-            onClick={() => setLang(lang === "en" ? "es" : "en")}
-            className="lang-toggle"
-          >
+          <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle theme">
+            {theme === "light" ? <Moon size={13} /> : <Sun size={13} />}
+          </button>
+          <button onClick={() => setLang(lang === "en" ? "es" : "en")} className="lang-toggle">
             <Globe size={13} />
             {lang === "en" ? "ES" : "EN"}
           </button>
@@ -107,38 +108,9 @@ export default function Navbar({ t, lang, setLang, scrollTo }) {
             onClick={() => setMobileMenu(!mobileMenu)}
             style={{ background: "none", border: "none", cursor: "pointer", padding: 4 }}
           >
-            <div
-              style={{
-                width: 20,
-                height: 2,
-                background: palette.text,
-                marginBottom: 5,
-                borderRadius: 2,
-                transition: "0.2s",
-                transform: mobileMenu ? "rotate(45deg) translateY(7px)" : "none",
-              }}
-            />
-            <div
-              style={{
-                width: 20,
-                height: 2,
-                background: palette.text,
-                marginBottom: 5,
-                borderRadius: 2,
-                opacity: mobileMenu ? 0 : 1,
-                transition: "0.2s",
-              }}
-            />
-            <div
-              style={{
-                width: 20,
-                height: 2,
-                background: palette.text,
-                borderRadius: 2,
-                transition: "0.2s",
-                transform: mobileMenu ? "rotate(-45deg) translateY(-7px)" : "none",
-              }}
-            />
+            <div style={{ width: 20, height: 2, background: p.text, marginBottom: 5, borderRadius: 2, transition: "0.2s", transform: mobileMenu ? "rotate(45deg) translateY(7px)" : "none" }} />
+            <div style={{ width: 20, height: 2, background: p.text, marginBottom: 5, borderRadius: 2, opacity: mobileMenu ? 0 : 1, transition: "0.2s" }} />
+            <div style={{ width: 20, height: 2, background: p.text, borderRadius: 2, transition: "0.2s", transform: mobileMenu ? "rotate(-45deg) translateY(-7px)" : "none" }} />
           </button>
         </div>
       </div>
@@ -151,20 +123,11 @@ export default function Navbar({ t, lang, setLang, scrollTo }) {
             ["process", t.nav.process],
             ["why", t.nav.why],
           ].map(([id, label]) => (
-            <button
-              key={id}
-              onClick={() => handleNav(id)}
-              className="nav-link"
-              style={{ textAlign: "left", padding: "8px 0" }}
-            >
+            <button key={id} onClick={() => handleNav(id)} className="nav-link" style={{ textAlign: "left", padding: "8px 0" }}>
               {label}
             </button>
           ))}
-          <button
-            className="btn-primary"
-            onClick={() => handleNav("book")}
-            style={{ marginTop: 8, justifyContent: "center" }}
-          >
+          <button className="btn-primary" onClick={() => handleNav("book")} style={{ marginTop: 8, justifyContent: "center" }}>
             {t.nav.book}
           </button>
         </div>

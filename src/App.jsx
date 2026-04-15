@@ -81,10 +81,28 @@ function SitePage({ langOverride }) {
     ...t,
     hero: {
       ...t.hero,
+      tag: story.heroTag,
       sub: story.heroSub,
+    },
+    services: {
+      ...t.services,
+      items: t.services.items.map((item) =>
+        item.icon === "ShieldCheck"
+          ? { ...item, desc: story.complianceService }
+          : item
+      ),
     },
     why: {
       ...t.why,
+      points: t.why.points.map((point) => {
+        if (point.icon === "ShieldCheck") {
+          return { ...point, title: story.privacyTitle, desc: story.privacyDesc };
+        }
+        if (point.icon === "Activity") {
+          return { ...point, title: story.expertiseTitle, desc: story.expertiseDesc };
+        }
+        return point;
+      }),
       compliance: {
         title: t.why.compliance.title,
         items: [
@@ -96,13 +114,18 @@ function SitePage({ langOverride }) {
         ],
       },
     },
+    cta: {
+      ...t.cta,
+      benefits: t.cta.benefits.map((b, i) =>
+        i === t.cta.benefits.length - 1 ? story.ctaBenefit : b
+      ),
+    },
     footer: {
       ...t.footer,
       hipaa: story.footerBadge,
     },
   };
 
-  
   const handleSetLang = (newLang) => {
     setLang(newLang);
     if (newLang === "en") {

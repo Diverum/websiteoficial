@@ -6,9 +6,7 @@ const countryCodes = [
   { code: "+1", flag: "🇺🇸", label: "US +1" },
   { code: "+57", flag: "🇨🇴", label: "CO +57" },
   { code: "+52", flag: "🇲🇽", label: "MX +52" },
-  { code: "+44", flag: "🇬🇧", label: "UK +44" },
   { code: "+34", flag: "🇪🇸", label: "ES +34" },
-  { code: "+55", flag: "🇧🇷", label: "BR +55" },
   { code: "+56", flag: "🇨🇱", label: "CL +56" },
   { code: "+51", flag: "🇵🇪", label: "PE +51" },
   { code: "+54", flag: "🇦🇷", label: "AR +54" },
@@ -93,9 +91,10 @@ export default function BookCall({ t, p, lang = "en" }) {
     }
   };
 
-  const handleBlur = (field) => {
+  const handleBlur = (field, overrideData) => {
     setTouched((prev) => ({ ...prev, [field]: true }));
-    const newErrors = validate(formData);
+    const dataToValidate = overrideData || formData;
+    const newErrors = validate(dataToValidate);
     setErrors((prev) => {
       const updated = { ...prev };
       if (newErrors[field]) updated[field] = newErrors[field];
@@ -103,6 +102,7 @@ export default function BookCall({ t, p, lang = "en" }) {
       return updated;
     });
   };
+
 
   const handleSubmit = async () => {
     // Mark all fields as touched
@@ -302,7 +302,11 @@ export default function BookCall({ t, p, lang = "en" }) {
                     <div>
                       <select
                         value={formData.country}
-                        onChange={(e) => { update("country", e.target.value); handleBlur("country"); }}
+                        onChange={(e) => {
+                            const newData = { ...formData, country: e.target.value };
+                            update("country", e.target.value);
+                            handleBlur("country", newData);
+                          }}
                         style={{
                           ...fieldStyle("country"),
                           color: formData.country ? p.text : p.textMuted,

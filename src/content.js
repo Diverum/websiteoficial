@@ -209,3 +209,99 @@ export const paletteDark = {
   border: "rgba(255, 255, 255, 0.08)",
   navBg: "rgba(11, 18, 21, 0.92)",
 };
+
+// Regulaciones por país
+export const countryRegulations = {
+  US: {
+    code: "US",
+    flag: "🇺🇸",
+    name: "HIPAA",
+    fullName: "Health Insurance Portability and Accountability Act",
+    desc: {
+      en: "PHI protection, encryption, access controls, and audit trails for all healthcare data.",
+      es: "Protección de PHI, encripción, control de accesos y trazabilidad para datos de salud.",
+    },
+  },
+  CO: {
+    code: "CO",
+    flag: "🇨🇴",
+    name: "Ley 1581 / Habeas Data",
+    fullName: "Ley de Protección de Datos Personales",
+    desc: {
+      en: "Colombian personal data protection — consent management, data minimization, and subject rights.",
+      es: "Gestión de consentimiento, minimización de datos y derechos del titular de datos personales.",
+    },
+  },
+  MX: {
+    code: "MX",
+    flag: "🇲🇽",
+    name: "LFPDPPP",
+    fullName: "Ley Federal de Protección de Datos Personales en Posesión de los Particulares",
+    desc: {
+      en: "Mexican data protection law — privacy notices, consent, and ARCO rights for patients.",
+      es: "Avisos de privacidad, consentimiento y derechos ARCO para datos de pacientes.",
+    },
+  },
+  ES: {
+    code: "ES",
+    flag: "🇪🇸",
+    name: "RGPD / LOPDGDD",
+    fullName: "Reglamento General de Protección de Datos + Ley Orgánica 3/2018",
+    desc: {
+      en: "EU GDPR plus Spain's organic law — lawful basis, DPO requirements, and data subject rights.",
+      es: "RGPD europeo más ley orgánica española — base legal, DPO y derechos del interesado.",
+    },
+  },
+  CL: {
+    code: "CL",
+    flag: "🇨🇱",
+    name: "Ley 19.628",
+    fullName: "Ley sobre Protección de la Vida Privada",
+    desc: {
+      en: "Chilean privacy law — personal data treatment rules, consent, and rectification rights.",
+      es: "Reglas de tratamiento de datos personales, consentimiento y derecho de rectificación.",
+    },
+  },
+  PE: {
+    code: "PE",
+    flag: "🇵🇪",
+    name: "Ley 29733",
+    fullName: "Ley de Protección de Datos Personales",
+    desc: {
+      en: "Peruvian data protection — data bank registration, consent, and transborder transfer rules.",
+      es: "Registro de bancos de datos, consentimiento y reglas de transferencia transfronteriza.",
+    },
+  },
+  AR: {
+    code: "AR",
+    flag: "🇦🇷",
+    name: "Ley 25.326",
+    fullName: "Ley de Protección de Datos Personales",
+    desc: {
+      en: "Argentine data protection — data quality, consent, database registration, and habeas data.",
+      es: "Calidad de datos, consentimiento, registro de bases de datos y habeas data.",
+    },
+  },
+  EC: {
+    code: "EC",
+    flag: "🇪🇨",
+    name: "LOPDP",
+    fullName: "Ley Orgánica de Protección de Datos Personales",
+    desc: {
+      en: "Ecuador's organic data protection law — consent, data minimization, and breach notification.",
+      es: "Consentimiento, minimización de datos y notificación de brechas de seguridad.",
+    },
+  },
+};
+
+// Mapeo país → idioma por defecto
+export const countryToLang = {
+  US: "en",
+  CO: "es",
+  MX: "es",
+  ES: "es",
+  CL: "es",
+  PE: "es",
+  AR: "es",
+  EC: "es",
+};

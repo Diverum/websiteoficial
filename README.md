@@ -58,6 +58,7 @@ El contenido de este repositorio evoluciona conforme crecen los servicios y los 
 Para información comercial o de servicios, el contacto se gestiona fuera de este repositorio.  
 Este espacio es principalmente técnico y operativo.
 
-Sayr Olivares (twitter): @sayrolivares
+contacto@diverum.com
+
 # websiteoficial
 Website oficial de Diverum

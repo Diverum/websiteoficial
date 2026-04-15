@@ -305,3 +305,87 @@ export const countryToLang = {
   AR: "es",
   EC: "es",
 };
+
+// Storytelling por país
+export const countryStories = {
+  US: {
+    en: {
+      heroSub: "We design and deploy intelligent automations for healthcare organizations across the United States. Less manual work, fewer errors, full HIPAA compliance.",
+      footerBadge: "HIPAA Compliant",
+    },
+    es: {
+      heroSub: "Diseñamos e implementamos automatizaciones inteligentes para organizaciones de salud en Estados Unidos. Menos trabajo manual, menos errores, cumplimiento HIPAA total.",
+      footerBadge: "Cumplimiento HIPAA",
+    },
+  },
+  CO: {
+    en: {
+      heroSub: "We design and deploy intelligent automations for healthcare organizations in Colombia. Less manual work, fewer errors, full Ley 1581 / Habeas Data compliance.",
+      footerBadge: "Ley 1581 Compliant",
+    },
+    es: {
+      heroSub: "Diseñamos e implementamos automatizaciones inteligentes para organizaciones de salud en Colombia. Menos trabajo manual, menos errores, cumplimiento total con Ley 1581 / Habeas Data.",
+      footerBadge: "Cumplimiento Ley 1581",
+    },
+  },
+  MX: {
+    en: {
+      heroSub: "We design and deploy intelligent automations for healthcare organizations in Mexico. Less manual work, fewer errors, full LFPDPPP compliance.",
+      footerBadge: "LFPDPPP Compliant",
+    },
+    es: {
+      heroSub: "Diseñamos e implementamos automatizaciones inteligentes para organizaciones de salud en México. Menos trabajo manual, menos errores, cumplimiento total con la LFPDPPP.",
+      footerBadge: "Cumplimiento LFPDPPP",
+    },
+  },
+  ES: {
+    en: {
+      heroSub: "We design and deploy intelligent automations for healthcare organizations in Spain. Less manual work, fewer errors, full GDPR & LOPDGDD compliance.",
+      footerBadge: "GDPR Compliant",
+    },
+    es: {
+      heroSub: "Diseñamos e implementamos automatizaciones inteligentes para organizaciones de salud en España. Menos trabajo manual, menos errores, cumplimiento total con RGPD y LOPDGDD.",
+      footerBadge: "Cumplimiento RGPD",
+    },
+  },
+  CL: {
+    en: {
+      heroSub: "We design and deploy intelligent automations for healthcare organizations in Chile. Less manual work, fewer errors, full Ley 19.628 compliance.",
+      footerBadge: "Ley 19.628 Compliant",
+    },
+    es: {
+      heroSub: "Diseñamos e implementamos automatizaciones inteligentes para organizaciones de salud en Chile. Menos trabajo manual, menos errores, cumplimiento total con la Ley 19.628.",
+      footerBadge: "Cumplimiento Ley 19.628",
+    },
+  },
+  PE: {
+    en: {
+      heroSub: "We design and deploy intelligent automations for healthcare organizations in Peru. Less manual work, fewer errors, full Ley 29733 compliance.",
+      footerBadge: "Ley 29733 Compliant",
+    },
+    es: {
+      heroSub: "Diseñamos e implementamos automatizaciones inteligentes para organizaciones de salud en Perú. Menos trabajo manual, menos errores, cumplimiento total con la Ley 29733.",
+      footerBadge: "Cumplimiento Ley 29733",
+    },
+  },
+  AR: {
+    en: {
+      heroSub: "We design and deploy intelligent automations for healthcare organizations in Argentina. Less manual work, fewer errors, full Ley 25.326 compliance.",
+      footerBadge: "Ley 25.326 Compliant",
+    },
+    es: {
+      heroSub: "Diseñamos e implementamos automatizaciones inteligentes para organizaciones de salud en Argentina. Menos trabajo manual, menos errores, cumplimiento total con la Ley 25.326.",
+      footerBadge: "Cumplimiento Ley 25.326",
+    },
+  },
+  EC: {
+    en: {
+      heroSub: "We design and deploy intelligent automations for healthcare organizations in Ecuador. Less manual work, fewer errors, full LOPDP compliance.",
+      footerBadge: "LOPDP Compliant",
+    },
+    es: {
+      heroSub: "Diseñamos e implementamos automatizaciones inteligentes para organizaciones de salud en Ecuador. Menos trabajo manual, menos errores, cumplimiento total con la LOPDP.",
+      footerBadge: "Cumplimiento LOPDP",
+    },
+  },
+};

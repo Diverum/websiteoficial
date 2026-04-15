@@ -1,12 +1,17 @@
 import { useState, useEffect } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
+
+
 import {
   content,
   paletteLight,
   paletteDark,
   countryRegulations,
   countryToLang,
+  countryStories,
 } from "./content";
+
+
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
@@ -70,9 +75,14 @@ function SitePage({ langOverride }) {
   const p = theme === "dark" ? paletteDark : paletteLight;
 
   const regulation = countryRegulations[country] || countryRegulations.US;
+  const story = countryStories[country]?.[lang] || countryStories.US[lang];
 
   const tWithRegulation = {
     ...t,
+    hero: {
+      ...t.hero,
+      sub: story.heroSub,
+    },
     why: {
       ...t.why,
       compliance: {
@@ -83,26 +93,16 @@ function SitePage({ langOverride }) {
             name: regulation.name,
             desc: regulation.desc[lang],
           },
-          ...(country !== "US"
-            ? [
-                {
-                  flag: countryRegulations.US.flag,
-                  name: countryRegulations.US.name,
-                  desc: countryRegulations.US.desc[lang],
-                },
-              ]
-            : [
-                {
-                  flag: countryRegulations.CO.flag,
-                  name: countryRegulations.CO.name,
-                  desc: countryRegulations.CO.desc[lang],
-                },
-              ]),
         ],
       },
     },
+    footer: {
+      ...t.footer,
+      hipaa: story.footerBadge,
+    },
   };
 
+  
   const handleSetLang = (newLang) => {
     setLang(newLang);
     if (newLang === "en") {

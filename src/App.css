@@ -381,3 +381,108 @@ select {
     grid-template-columns: 1fr;
   }
 }
+
+/* =============================================
+   MOBILE SLIDE-IN PANEL — Add to App.css
+   ============================================= */
+
+/* Overlay behind mobile panel */
+.mobile-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 199;
+  background: rgba(0, 0, 0, 0);
+  pointer-events: none;
+  transition: background 0.3s ease;
+}
+
+.mobile-overlay--open {
+  background: rgba(0, 0, 0, 0.4);
+  pointer-events: auto;
+}
+
+/* Slide-in panel from left, 75vw */
+.mobile-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 75vw;
+  max-width: 340px;
+  z-index: 200;
+  transform: translateX(-100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mobile-panel--open {
+  transform: translateX(0);
+}
+
+/* Hide the old mobile dropdown if it still exists */
+.mobile-dropdown {
+  display: none !important;
+}
+
+/* =============================================
+   TERMS CHECKBOX — for BookCall form
+   ============================================= */
+
+.terms-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+
+.terms-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  margin-top: 2px;
+  accent-color: var(--c-accent);
+  cursor: pointer;
+}
+
+.terms-checkbox label {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--c-text-muted);
+}
+
+.terms-checkbox label a {
+  color: var(--c-accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.terms-checkbox label a:hover {
+  text-decoration: underline;
+}
+
+.terms-error {
+  font-size: 12px;
+  color: #e53e3e;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+/* =============================================
+   FOOTER LINKS — ensure they work as <a>/<Link>
+   ============================================= */
+
+a.footer-link {
+  font-size: 13px;
+  color: var(--c-text-muted);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+a.footer-link:hover {
+  color: var(--c-accent);
+}

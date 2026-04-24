@@ -1,16 +1,11 @@
 import { useState } from "react";
 import { ArrowRight, CalendarDays, Check, AlertCircle } from "lucide-react";
 import { useInView } from "../hooks/useInView";
+import TermsCheckbox from "./TermsCheckbox";
 
 const countryCodes = [
   { code: "+1", flag: "🇺🇸", label: "US +1" },
   { code: "+57", flag: "🇨🇴", label: "CO +57" },
-  { code: "+52", flag: "🇲🇽", label: "MX +52" },
-  { code: "+34", flag: "🇪🇸", label: "ES +34" },
-  { code: "+56", flag: "🇨🇱", label: "CL +56" },
-  { code: "+51", flag: "🇵🇪", label: "PE +51" },
-  { code: "+54", flag: "🇦🇷", label: "AR +54" },
-  { code: "+593", flag: "🇪🇨", label: "EC +593" },
 ];
 
 const validationMessages = {
@@ -52,26 +47,22 @@ export default function BookCall({ t, p, lang = "en" }) {
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
   const [formState, setFormState] = useState("idle");
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
+  const [termsError, setTermsError] = useState(false);
 
   const v = validationMessages[lang] || validationMessages.en;
 
   const validate = (data) => {
     const errs = {};
-    // Name
     if (!data.name.trim()) errs.name = v.nameRequired;
     else if (data.name.trim().length < 2) errs.name = v.nameMin;
-    // Email
     if (!data.email.trim()) errs.email = v.emailRequired;
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) errs.email = v.emailInvalid;
-    // Phone
     const digits = data.phone.replace(/\D/g, "");
     if (!digits) errs.phone = v.phoneRequired;
     else if (digits.length < 7 || digits.length > 15) errs.phone = v.phoneInvalid;
-    // Company
     if (!data.company.trim()) errs.company = v.companyRequired;
-    // Country
     if (!data.country) errs.country = v.countryRequired;
-    // Message
     if (!data.message.trim()) errs.message = v.messageRequired;
     return errs;
   };
@@ -79,7 +70,6 @@ export default function BookCall({ t, p, lang = "en" }) {
   const update = (field, value) => {
     const newData = { ...formData, [field]: value };
     setFormData(newData);
-    // Clear error on type if field was touched
     if (touched[field]) {
       const newErrors = validate(newData);
       setErrors((prev) => {
@@ -103,19 +93,22 @@ export default function BookCall({ t, p, lang = "en" }) {
     });
   };
 
-
   const handleSubmit = async () => {
-    // Mark all fields as touched
     const allTouched = { name: true, email: true, phone: true, company: true, country: true, message: true };
     setTouched(allTouched);
 
     const errs = validate(formData);
     setErrors(errs);
-    if (Object.keys(errs).length > 0) return;
+
+    // Check terms acceptance
+    if (!acceptedTerms) {
+      setTermsError(true);
+    }
+
+    if (Object.keys(errs).length > 0 || !acceptedTerms) return;
 
     setFormState("sending");
 
-    // HubSpot tracking cookie
     const hutk = document.cookie
       .split("; ")
       .find((c) => c.startsWith("hubspotutk="))
@@ -303,10 +296,10 @@ export default function BookCall({ t, p, lang = "en" }) {
                       <select
                         value={formData.country}
                         onChange={(e) => {
-                            const newData = { ...formData, country: e.target.value };
-                            update("country", e.target.value);
-                            handleBlur("country", newData);
-                          }}
+                          const newData = { ...formData, country: e.target.value };
+                          update("country", e.target.value);
+                          handleBlur("country", newData);
+                        }}
                         style={{
                           ...fieldStyle("country"),
                           color: formData.country ? p.text : p.textMuted,
@@ -333,6 +326,16 @@ export default function BookCall({ t, p, lang = "en" }) {
                       />
                       <ErrorMsg field="message" />
                     </div>
+
+                    {/* Terms Checkbox */}
+                    <TermsCheckbox
+                      acceptedTerms={acceptedTerms}
+                      setAcceptedTerms={setAcceptedTerms}
+                      termsError={termsError}
+                      setTermsError={setTermsError}
+                      lang={lang}
+                      t={t}
+                    />
 
                     {/* Submit */}
                     <button

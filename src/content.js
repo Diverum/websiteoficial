@@ -11,7 +11,7 @@ export const content = {
       headline: "Stop Losing Time on Tasks Your Clinic Shouldn't Be Doing Manually",
       sub: "We design and deploy intelligent automations for healthcare organizations in the U.S. and Colombia. Less manual work, fewer errors, full regulatory compliance.",
       cta: "Book a Free Discovery Call",
-      ctaSec: "See How It Works"
+      ctaSec: "See How It Works",
     },
     services: {
       tag: "How We Help",
@@ -62,7 +62,7 @@ export const content = {
       formSub: "Fill in your details and we'll reach out within 24 hours.",
       fields: {
         name: "Full Name",
-        phone: "Phone Number", 
+        phone: "Phone Number",
         email: "Work Email",
         company: "Clinic / Organization",
         country: "Country",
@@ -71,6 +71,11 @@ export const content = {
         submit: "Request Discovery Call",
         submitting: "Sending...",
         success: "Thank you! We'll contact you within 24 hours.",
+        acceptTerms: "I accept the",
+        termsLink: "Terms and Conditions",
+        andText: "and",
+        privacyLink: "Privacy Policy",
+        termsRequired: "You must accept the terms and conditions to continue.",
       },
       benefits: [
         "30-minute free call",
@@ -86,6 +91,16 @@ export const content = {
       privacy: "Privacy Policy",
       terms: "Terms of Service",
     },
+    privacy: {
+      title: "Privacy Policy",
+      lastUpdated: "Last updated: April 2026",
+      backHome: "Back to Home",
+    },
+    terms: {
+      title: "Terms of Service",
+      lastUpdated: "Last updated: April 2026",
+      backHome: "Back to Home",
+    },
   },
   es: {
     nav: {
@@ -100,11 +115,6 @@ export const content = {
       sub: "Diseñamos e implementamos automatizaciones inteligentes para organizaciones de salud en EE.UU. y Colombia. Menos trabajo manual, menos errores, cumplimiento regulatorio total.",
       cta: "Agenda una Llamada Gratis",
       ctaSec: "Ver Cómo Funciona",
-      stats: [
-        { value: "40%", label: "Tiempo promedio ahorrado" },
-        { value: "99.9%", label: "Uptime en automatizaciones" },
-        { value: "100%", label: "Cumplimiento HIPAA" },
-      ],
     },
     services: {
       tag: "Cómo Ayudamos",
@@ -155,7 +165,7 @@ export const content = {
       formSub: "Completa tus datos y te contactaremos en 24 horas.",
       fields: {
         name: "Nombre Completo",
-        phone: "Número de Teléfono",  
+        phone: "Número de Teléfono",
         email: "Correo Corporativo",
         company: "Clínica / Organización",
         country: "País",
@@ -164,6 +174,11 @@ export const content = {
         submit: "Solicitar Llamada",
         submitting: "Enviando...",
         success: "¡Gracias! Te contactaremos en 24 horas.",
+        acceptTerms: "Acepto los",
+        termsLink: "Términos y Condiciones",
+        andText: "y la",
+        privacyLink: "Política de Privacidad",
+        termsRequired: "Debes aceptar los términos y condiciones para continuar.",
       },
       benefits: [
         "Llamada gratis de 30 minutos",
@@ -178,6 +193,16 @@ export const content = {
       about: "Nosotros",
       privacy: "Política de Privacidad",
       terms: "Términos de Servicio",
+    },
+    privacy: {
+      title: "Política de Privacidad",
+      lastUpdated: "Última actualización: Abril 2026",
+      backHome: "Volver al Inicio",
+    },
+    terms: {
+      title: "Términos de Servicio",
+      lastUpdated: "Última actualización: Abril 2026",
+      backHome: "Volver al Inicio",
     },
   },
 };
@@ -210,7 +235,7 @@ export const paletteDark = {
   navBg: "rgba(11, 18, 21, 0.92)",
 };
 
-// Regulaciones por país
+// Regulaciones — solo US y CO
 export const countryRegulations = {
   US: {
     code: "US",
@@ -232,81 +257,15 @@ export const countryRegulations = {
       es: "Gestión de consentimiento, minimización de datos y derechos del titular de datos personales.",
     },
   },
-  MX: {
-    code: "MX",
-    flag: "🇲🇽",
-    name: "LFPDPPP",
-    fullName: "Ley Federal de Protección de Datos Personales en Posesión de los Particulares",
-    desc: {
-      en: "Mexican data protection law — privacy notices, consent, and ARCO rights for patients.",
-      es: "Avisos de privacidad, consentimiento y derechos ARCO para datos de pacientes.",
-    },
-  },
-  ES: {
-    code: "ES",
-    flag: "🇪🇸",
-    name: "RGPD / LOPDGDD",
-    fullName: "Reglamento General de Protección de Datos + Ley Orgánica 3/2018",
-    desc: {
-      en: "EU GDPR plus Spain's organic law — lawful basis, DPO requirements, and data subject rights.",
-      es: "RGPD europeo más ley orgánica española — base legal, DPO y derechos del interesado.",
-    },
-  },
-  CL: {
-    code: "CL",
-    flag: "🇨🇱",
-    name: "Ley 19.628",
-    fullName: "Ley sobre Protección de la Vida Privada",
-    desc: {
-      en: "Chilean privacy law — personal data treatment rules, consent, and rectification rights.",
-      es: "Reglas de tratamiento de datos personales, consentimiento y derecho de rectificación.",
-    },
-  },
-  PE: {
-    code: "PE",
-    flag: "🇵🇪",
-    name: "Ley 29733",
-    fullName: "Ley de Protección de Datos Personales",
-    desc: {
-      en: "Peruvian data protection — data bank registration, consent, and transborder transfer rules.",
-      es: "Registro de bancos de datos, consentimiento y reglas de transferencia transfronteriza.",
-    },
-  },
-  AR: {
-    code: "AR",
-    flag: "🇦🇷",
-    name: "Ley 25.326",
-    fullName: "Ley de Protección de Datos Personales",
-    desc: {
-      en: "Argentine data protection — data quality, consent, database registration, and habeas data.",
-      es: "Calidad de datos, consentimiento, registro de bases de datos y habeas data.",
-    },
-  },
-  EC: {
-    code: "EC",
-    flag: "🇪🇨",
-    name: "LOPDP",
-    fullName: "Ley Orgánica de Protección de Datos Personales",
-    desc: {
-      en: "Ecuador's organic data protection law — consent, data minimization, and breach notification.",
-      es: "Consentimiento, minimización de datos y notificación de brechas de seguridad.",
-    },
-  },
 };
 
-// Mapeo país → idioma por defecto
+// Mapeo país → idioma por defecto (solo US y CO)
 export const countryToLang = {
   US: "en",
   CO: "es",
-  MX: "es",
-  ES: "es",
-  CL: "es",
-  PE: "es",
-  AR: "es",
-  EC: "es",
 };
 
-// Storytelling por país
+// Storytelling por país — solo US y CO
 export const countryStories = {
   US: {
     en: {
@@ -354,150 +313,6 @@ export const countryStories = {
       expertiseDesc: "Nos especializamos en regulaciones de salud colombianas, incluyendo Ley 1581 / Habeas Data, asegurando cumplimiento local en cada automatización.",
       ctaBenefit: "Proceso con cumplimiento Ley 1581",
       footerBadge: "Cumplimiento Ley 1581",
-    },
-  },
-  MX: {
-    en: {
-      heroTag: "Healthcare Automation — LFPDPPP Compliant",
-      heroSub: "We design and deploy intelligent automations for healthcare organizations in Mexico. Less manual work, fewer errors, full LFPDPPP compliance.",
-      complianceService: "Every automation is built with LFPDPPP compliance baked in — privacy notices, consent, and ARCO rights. No exceptions.",
-      privacyTitle: "LFPDPPP & Data Privacy First",
-      privacyDesc: "Every workflow is designed with privacy notices, patient consent, and ARCO rights built in from day one.",
-      expertiseTitle: "Mexican Healthcare Expertise",
-      expertiseDesc: "We specialize in Mexican healthcare regulations, including LFPDPPP, ensuring every automation meets local compliance standards.",
-      ctaBenefit: "LFPDPPP-compliant process",
-      footerBadge: "LFPDPPP Compliant",
-    },
-    es: {
-      heroTag: "Automatización Healthcare — Cumplimiento LFPDPPP",
-      heroSub: "Diseñamos e implementamos automatizaciones inteligentes para organizaciones de salud en México. Menos trabajo manual, menos errores, cumplimiento total con la LFPDPPP.",
-      complianceService: "Cada automatización se construye con cumplimiento LFPDPPP integrado — avisos de privacidad, consentimiento y derechos ARCO. Sin excepciones.",
-      privacyTitle: "LFPDPPP y Privacidad Primero",
-      privacyDesc: "Cada flujo se diseña con avisos de privacidad, consentimiento del paciente y derechos ARCO desde el día uno.",
-      expertiseTitle: "Experiencia en Salud en México",
-      expertiseDesc: "Nos especializamos en regulaciones de salud mexicanas, incluyendo LFPDPPP, asegurando cumplimiento local en cada automatización.",
-      ctaBenefit: "Proceso con cumplimiento LFPDPPP",
-      footerBadge: "Cumplimiento LFPDPPP",
-    },
-  },
-  ES: {
-    en: {
-      heroTag: "Healthcare Automation — GDPR Compliant",
-      heroSub: "We design and deploy intelligent automations for healthcare organizations in Spain. Less manual work, fewer errors, full GDPR & LOPDGDD compliance.",
-      complianceService: "Every automation is built with GDPR and LOPDGDD compliance baked in — lawful basis, DPO requirements, and data subject rights. No exceptions.",
-      privacyTitle: "GDPR & Data Privacy First",
-      privacyDesc: "Every workflow is designed with lawful processing basis, DPO oversight, and data subject rights built in from day one.",
-      expertiseTitle: "Spanish Healthcare Expertise",
-      expertiseDesc: "We specialize in Spanish and EU healthcare regulations, including GDPR and LOPDGDD, ensuring every automation meets European compliance standards.",
-      ctaBenefit: "GDPR-compliant process",
-      footerBadge: "GDPR Compliant",
-    },
-    es: {
-      heroTag: "Automatización Healthcare — Cumplimiento RGPD",
-      heroSub: "Diseñamos e implementamos automatizaciones inteligentes para organizaciones de salud en España. Menos trabajo manual, menos errores, cumplimiento total con RGPD y LOPDGDD.",
-      complianceService: "Cada automatización se construye con cumplimiento RGPD y LOPDGDD integrado — base legal, requisitos de DPO y derechos del interesado. Sin excepciones.",
-      privacyTitle: "RGPD y Privacidad Primero",
-      privacyDesc: "Cada flujo se diseña con base legal de tratamiento, supervisión de DPO y derechos del interesado desde el día uno.",
-      expertiseTitle: "Experiencia en Salud en España",
-      expertiseDesc: "Nos especializamos en regulaciones de salud españolas y europeas, incluyendo RGPD y LOPDGDD, asegurando cumplimiento europeo en cada automatización.",
-      ctaBenefit: "Proceso con cumplimiento RGPD",
-      footerBadge: "Cumplimiento RGPD",
-    },
-  },
-  CL: {
-    en: {
-      heroTag: "Healthcare Automation — Ley 19.628 Compliant",
-      heroSub: "We design and deploy intelligent automations for healthcare organizations in Chile. Less manual work, fewer errors, full Ley 19.628 compliance.",
-      complianceService: "Every automation is built with Ley 19.628 compliance baked in — personal data treatment rules, consent, and rectification rights. No exceptions.",
-      privacyTitle: "Ley 19.628 & Data Privacy First",
-      privacyDesc: "Every workflow is designed with personal data treatment rules, patient consent, and rectification rights built in from day one.",
-      expertiseTitle: "Chilean Healthcare Expertise",
-      expertiseDesc: "We specialize in Chilean healthcare regulations, including Ley 19.628, ensuring every automation meets local compliance standards.",
-      ctaBenefit: "Ley 19.628 compliant process",
-      footerBadge: "Ley 19.628 Compliant",
-    },
-    es: {
-      heroTag: "Automatización Healthcare — Cumplimiento Ley 19.628",
-      heroSub: "Diseñamos e implementamos automatizaciones inteligentes para organizaciones de salud en Chile. Menos trabajo manual, menos errores, cumplimiento total con la Ley 19.628.",
-      complianceService: "Cada automatización se construye con cumplimiento Ley 19.628 integrado — reglas de tratamiento de datos, consentimiento y derecho de rectificación. Sin excepciones.",
-      privacyTitle: "Ley 19.628 y Privacidad Primero",
-      privacyDesc: "Cada flujo se diseña con reglas de tratamiento de datos personales, consentimiento y derecho de rectificación desde el día uno.",
-      expertiseTitle: "Experiencia en Salud en Chile",
-      expertiseDesc: "Nos especializamos en regulaciones de salud chilenas, incluyendo Ley 19.628, asegurando cumplimiento local en cada automatización.",
-      ctaBenefit: "Proceso con cumplimiento Ley 19.628",
-      footerBadge: "Cumplimiento Ley 19.628",
-    },
-  },
-  PE: {
-    en: {
-      heroTag: "Healthcare Automation — Ley 29733 Compliant",
-      heroSub: "We design and deploy intelligent automations for healthcare organizations in Peru. Less manual work, fewer errors, full Ley 29733 compliance.",
-      complianceService: "Every automation is built with Ley 29733 compliance baked in — data bank registration, consent, and transborder transfer rules. No exceptions.",
-      privacyTitle: "Ley 29733 & Data Privacy First",
-      privacyDesc: "Every workflow is designed with data bank registration, patient consent, and transborder transfer rules built in from day one.",
-      expertiseTitle: "Peruvian Healthcare Expertise",
-      expertiseDesc: "We specialize in Peruvian healthcare regulations, including Ley 29733, ensuring every automation meets local compliance standards.",
-      ctaBenefit: "Ley 29733 compliant process",
-      footerBadge: "Ley 29733 Compliant",
-    },
-    es: {
-      heroTag: "Automatización Healthcare — Cumplimiento Ley 29733",
-      heroSub: "Diseñamos e implementamos automatizaciones inteligentes para organizaciones de salud en Perú. Menos trabajo manual, menos errores, cumplimiento total con la Ley 29733.",
-      complianceService: "Cada automatización se construye con cumplimiento Ley 29733 integrado — registro de bancos de datos, consentimiento y reglas de transferencia transfronteriza. Sin excepciones.",
-      privacyTitle: "Ley 29733 y Privacidad Primero",
-      privacyDesc: "Cada flujo se diseña con registro de bancos de datos, consentimiento y reglas de transferencia transfronteriza desde el día uno.",
-      expertiseTitle: "Experiencia en Salud en Perú",
-      expertiseDesc: "Nos especializamos en regulaciones de salud peruanas, incluyendo Ley 29733, asegurando cumplimiento local en cada automatización.",
-      ctaBenefit: "Proceso con cumplimiento Ley 29733",
-      footerBadge: "Cumplimiento Ley 29733",
-    },
-  },
-  AR: {
-    en: {
-      heroTag: "Healthcare Automation — Ley 25.326 Compliant",
-      heroSub: "We design and deploy intelligent automations for healthcare organizations in Argentina. Less manual work, fewer errors, full Ley 25.326 compliance.",
-      complianceService: "Every automation is built with Ley 25.326 compliance baked in — data quality, consent, and database registration. No exceptions.",
-      privacyTitle: "Ley 25.326 & Data Privacy First",
-      privacyDesc: "Every workflow is designed with data quality principles, patient consent, and database registration built in from day one.",
-      expertiseTitle: "Argentine Healthcare Expertise",
-      expertiseDesc: "We specialize in Argentine healthcare regulations, including Ley 25.326, ensuring every automation meets local compliance standards.",
-      ctaBenefit: "Ley 25.326 compliant process",
-      footerBadge: "Ley 25.326 Compliant",
-    },
-    es: {
-      heroTag: "Automatización Healthcare — Cumplimiento Ley 25.326",
-      heroSub: "Diseñamos e implementamos automatizaciones inteligentes para organizaciones de salud en Argentina. Menos trabajo manual, menos errores, cumplimiento total con la Ley 25.326.",
-      complianceService: "Cada automatización se construye con cumplimiento Ley 25.326 integrado — calidad de datos, consentimiento y registro de bases de datos. Sin excepciones.",
-      privacyTitle: "Ley 25.326 y Privacidad Primero",
-      privacyDesc: "Cada flujo se diseña con principios de calidad de datos, consentimiento y registro de bases de datos desde el día uno.",
-      expertiseTitle: "Experiencia en Salud en Argentina",
-      expertiseDesc: "Nos especializamos en regulaciones de salud argentinas, incluyendo Ley 25.326, asegurando cumplimiento local en cada automatización.",
-      ctaBenefit: "Proceso con cumplimiento Ley 25.326",
-      footerBadge: "Cumplimiento Ley 25.326",
-    },
-  },
-  EC: {
-    en: {
-      heroTag: "Healthcare Automation — LOPDP Compliant",
-      heroSub: "We design and deploy intelligent automations for healthcare organizations in Ecuador. Less manual work, fewer errors, full LOPDP compliance.",
-      complianceService: "Every automation is built with LOPDP compliance baked in — consent, data minimization, and breach notification. No exceptions.",
-      privacyTitle: "LOPDP & Data Privacy First",
-      privacyDesc: "Every workflow is designed with consent management, data minimization, and breach notification built in from day one.",
-      expertiseTitle: "Ecuadorian Healthcare Expertise",
-      expertiseDesc: "We specialize in Ecuadorian healthcare regulations, including LOPDP, ensuring every automation meets local compliance standards.",
-      ctaBenefit: "LOPDP-compliant process",
-      footerBadge: "LOPDP Compliant",
-    },
-    es: {
-      heroTag: "Automatización Healthcare — Cumplimiento LOPDP",
-      heroSub: "Diseñamos e implementamos automatizaciones inteligentes para organizaciones de salud en Ecuador. Menos trabajo manual, menos errores, cumplimiento total con la LOPDP.",
-      complianceService: "Cada automatización se construye con cumplimiento LOPDP integrado — consentimiento, minimización de datos y notificación de brechas. Sin excepciones.",
-      privacyTitle: "LOPDP y Privacidad Primero",
-      privacyDesc: "Cada flujo se diseña con gestión de consentimiento, minimización de datos y notificación de brechas desde el día uno.",
-      expertiseTitle: "Experiencia en Salud en Ecuador",
-      expertiseDesc: "Nos especializamos en regulaciones de salud ecuatorianas, incluyendo LOPDP, asegurando cumplimiento local en cada automatización.",
-      ctaBenefit: "Proceso con cumplimiento LOPDP",
-      footerBadge: "Cumplimiento LOPDP",
     },
   },
 };

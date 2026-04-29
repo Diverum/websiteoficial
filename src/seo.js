@@ -15,15 +15,15 @@ const seoCopy = {
     home: {
       title: "Diverum | Automatización para clínicas",
       description:
-        "Diverum ofrece automatización operativa para clínicas con IA: agenda, admisiones administrativas, recordatorios, tareas internas, reportes y facturación sin acceso a PHI.",
+        "Diverum ofrece automatización operativa para clínicas en Colombia con IA: agenda del equipo, tareas internas, reportes y facturación sin datos médicos ni datos personales de pacientes.",
       keywords:
-        "Diverum, automatización para clínicas, automatización operativa clínica, IA para clínicas, automatización healthcare, sin PHI, No BAA",
+        "Diverum, automatización para clínicas, automatización operativa clínica, IA para clínicas, automatización healthcare, sin datos médicos, sin datos personales de pacientes",
       locale: "es_CO",
     },
     about: {
       title: "Nosotros | Diverum",
       description:
-        "Conoce a Diverum, especialistas en automatización operativa para clínicas, integraciones con IA y flujos de salud sin acceso a PHI.",
+        "Conoce a Diverum, especialistas en automatización operativa para clínicas en Colombia e integraciones con IA sin acceso a datos médicos ni datos personales de pacientes.",
       keywords: "Diverum, nosotros Diverum, automatización para clínicas, IA para salud",
       locale: "es_CO",
     },

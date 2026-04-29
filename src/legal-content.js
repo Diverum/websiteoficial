@@ -276,9 +276,9 @@ DIVERUM, en su calidad de Responsable del tratamiento, recolecta y administra da
 
 6.2. Datos de pacientes y datos clínicos de clientes
 
-El alcance ordinario de los servicios de DIVERUM se limita a automatización operativa y administrativa para clínicas, centros médicos y empresas del sector salud. DIVERUM no recolecta, almacena, administra ni trata historias clínicas, datos clínicos, datos de salud, diagnósticos, tratamientos ni Protected Health Information (PHI).
+El alcance ordinario de los servicios de DIVERUM se limita a automatización operativa y administrativa para clínicas, centros médicos y empresas del sector salud en Colombia. DIVERUM no recolecta, almacena, administra ni trata historias clínicas, datos médicos, datos de salud, diagnósticos, tratamientos ni datos personales de pacientes.
 
-Las automatizaciones de DIVERUM deben configurarse para operar sobre datos administrativos, operativos o comerciales autorizados por el Cliente, excluyendo PHI y datos clínicos. Toda información clínica o relativa a pacientes pertenece de manera exclusiva a las clínicas, centros médicos o empresas clientes, las cuales conservan la titularidad de sus bases de datos y actúan como Responsables del tratamiento.
+Las automatizaciones de DIVERUM deben configurarse para operar sobre datos administrativos, operativos, comerciales o internos autorizados por el Cliente, excluyendo datos médicos, historias clínicas y datos personales de pacientes. Toda información médica, clínica o personal relativa a pacientes pertenece de manera exclusiva a las clínicas, centros médicos o empresas clientes, las cuales conservan la titularidad de sus bases de datos y actúan como Responsables del tratamiento.
 
 Cuando DIVERUM trate datos personales administrativos cuyo Responsable sea el Cliente, actuará exclusivamente en calidad de Encargado del Tratamiento, conforme a la Ley 1581 de 2012 y el Decreto 1377 de 2013, obligándose a:
 
@@ -291,7 +291,7 @@ Cuando DIVERUM trate datos personales administrativos cuyo Responsable sea el Cl
 
 6.3. Limitación expresa
 
-En ningún caso DIVERUM adquiere la propiedad, titularidad o control decisorio sobre las bases de datos de pacientes de sus clientes, ni presta servicios diseñados para recolectar, procesar, almacenar o transmitir PHI.`,
+En ningún caso DIVERUM adquiere la propiedad, titularidad o control decisorio sobre las bases de datos de pacientes de sus clientes, ni presta servicios diseñados para recolectar, procesar, almacenar o transmitir datos médicos, historias clínicas o datos personales de pacientes.`,
       },
       {
         title: "7. Datos Personales Recolectados por DIVERUM",

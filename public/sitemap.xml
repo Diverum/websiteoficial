@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://diverum.com/</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://diverum.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://diverum.com/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://diverum.com/" />
+  </url>
+  <url>
+    <loc>https://diverum.com/en</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://diverum.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://diverum.com/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://diverum.com/" />
+  </url>
+  <url>
+    <loc>https://diverum.com/about</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://diverum.com/about" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://diverum.com/en/about" />
+  </url>
+  <url>
+    <loc>https://diverum.com/en/about</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://diverum.com/about" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://diverum.com/en/about" />
+  </url>
+  <url>
+    <loc>https://diverum.com/privacy</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://diverum.com/privacy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://diverum.com/en/privacy" />
+  </url>
+  <url>
+    <loc>https://diverum.com/en/privacy</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://diverum.com/privacy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://diverum.com/en/privacy" />
+  </url>
+  <url>
+    <loc>https://diverum.com/terms</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://diverum.com/terms" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://diverum.com/en/terms" />
+  </url>
+  <url>
+    <loc>https://diverum.com/en/terms</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://diverum.com/terms" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://diverum.com/en/terms" />
+  </url>
+</urlset>

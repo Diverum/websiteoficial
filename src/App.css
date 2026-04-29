@@ -303,6 +303,30 @@ select {
   gap: 24px;
 }
 
+/* ── FAQ ── */
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+.faq-item {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: 8px;
+  padding: 24px;
+}
+.faq-question {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 10px;
+}
+.faq-answer {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--c-text-muted);
+}
+
 /* ── Book / CTA Grid ── */
 .book-grid {
   display: grid;
@@ -375,6 +399,9 @@ select {
     grid-template-columns: 1fr;
   }
   .compliance-grid {
+    grid-template-columns: 1fr;
+  }
+  .faq-grid {
     grid-template-columns: 1fr;
   }
   .book-grid {

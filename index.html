@@ -2,73 +2,174 @@
 <html lang="es">
 
 <head>
-  <!-- Character encoding: ensures correct rendering of all Unicode characters -->
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Diverum | Automatización para clínicas</title>
+  <meta
+    name="description"
+    content="Diverum ofrece automatización operativa para clínicas con IA: agenda, admisiones administrativas, recordatorios, tareas internas, reportes y facturación sin acceso a PHI."
+  />
+  <meta
+    name="keywords"
+    content="Diverum, automatización para clínicas, automatización operativa clínica, IA para clínicas, automatización healthcare, procesos operativos clínicos, sin PHI, No BAA"
+  />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="author" content="Diverum" />
+  <meta name="application-name" content="Diverum" />
+
+  <link rel="canonical" href="https://diverum.com/" />
+  <link rel="alternate" hreflang="es" href="https://diverum.com/" />
+  <link rel="alternate" hreflang="en" href="https://diverum.com/en" />
+  <link rel="alternate" hreflang="x-default" href="https://diverum.com/" />
+  <link rel="icon" type="image/svg+xml" href="/Logo.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap"
+    rel="stylesheet"
+  />
+
+  <meta property="og:site_name" content="Diverum" />
+  <meta property="og:title" content="Diverum | Automatización para clínicas" />
+  <meta
+    property="og:description"
+    content="Automatización operativa para clínicas con IA: menos tareas manuales, menos errores y flujos de front-office y back-office sin recolectar, procesar ni almacenar PHI."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://diverum.com/" />
+  <meta property="og:image" content="https://diverum.com/og-image.png" />
+  <meta property="og:image:alt" content="Diverum | Automatización para clínicas" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="es_CO" />
+  <meta property="og:locale:alternate" content="en_US" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Diverum | Automatización para clínicas" />
+  <meta
+    name="twitter:description"
+    content="Diverum automatiza agenda, admisiones administrativas, recordatorios, tareas internas, reportes y handoffs de facturación para clínicas sin acceso a PHI."
+  />
+  <meta name="twitter:image" content="https://diverum.com/og-image.png" />
+  <meta name="twitter:image:alt" content="Diverum | Automatización para clínicas" />
+
+  <meta name="theme-color" content="#0f172a" />
+
   <script src="https://js.hsforms.net/forms/embed/v2.js" defer></script>
   <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/51065610.js"></script>
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
-  <!-- Viewport: controls responsive layout on mobile devices -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Page title shown in browser tabs and search results -->
-  <title>Diverum Labs | Automatización con IA para Empresas</title>
-
-  <!-- Primary meta description for SEO -->
-  <meta
-          name="description"
-          content="Diverum Labs es un socio de integración de IA que ayuda a las empresas a automatizar flujos de trabajo, eliminar procesos manuales y reducir la carga de trabajo operativa."
-  />
-
-  <!-- Favicon (must live in /public toZZ be accessible in production) -->
-  <link rel="icon" type="image/svg+xml" href="/Logo.svg" />
-
-  <!-- Google Font: Zalando Sans -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-          href="https://fonts.googleapis.com/css2?family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap"
-          rel="stylesheet"
-  />
-
-  <!-- Open Graph metadata (LinkedIn, Slack, WhatsApp, etc.) -->
-  <meta property="og:site_name" content="Diverum Labs" />
-  <meta property="og:title" content="Diverum Labs | Automatización con IA para Empresas" />
-  <meta
-          property="og:description"
-          content="Diverum Labs automatiza flujos de trabajo, elimina procesos manuales y optimiza operaciones empresariales con inteligencia artificial."
-  />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://diverum.com" />
-  <meta property="og:image" content="https://diverum.com/og-image.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-
-  <!-- Twitter Card metadata -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Diverum Labs | Automatización con IA para Empresas" />
-  <meta
-          name="twitter:description"
-          content="Diverum Labs automatiza flujos de trabajo, elimina procesos manuales y optimiza operaciones empresariales con inteligencia artificial."
-  />
-  <meta name="twitter:image" content="https://diverum.com/og-image.png" />
-
-  <!-- Theme color for mobile browsers -->
-  <meta name="theme-color" content="#0f172a" />
-
-  <!-- SEO purpose and company designation -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Diverum Labs",
-      "url": "https://diverum.com",
-      "logo": "https://diverum.com/Logo.svg",
-      "description": "Diverum Labs es un socio de integración de inteligencia artificial que automatiza procesos y flujos de trabajo para empresas.",
-      "foundingDate": "2024",
-      "areaServed": "ES",
-      "sameAs": [
-        "https://www.linkedin.com/company/diverumlabs"
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://diverum.com/#organization",
+          "name": "Diverum",
+          "alternateName": "Diverum | Automatización para clínicas",
+          "url": "https://diverum.com/",
+          "logo": "https://diverum.com/Logo.svg",
+          "image": "https://diverum.com/og-image.png",
+          "description": "Diverum ofrece automatización para clínicas con IA, integraciones y flujos operativos para organizaciones de salud.",
+          "foundingDate": "2024",
+          "areaServed": [
+            { "@type": "Country", "name": "Colombia" },
+            { "@type": "Country", "name": "United States" }
+          ],
+          "knowsAbout": [
+            "Automatización para clínicas",
+            "Automatización operativa clínica con IA",
+            "Automatización de front-office y back-office",
+            "Integración de CRM y herramientas operativas",
+            "Automatización sin PHI",
+            "No BAA"
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/company/diverumlabs"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://diverum.com/#website",
+          "url": "https://diverum.com/",
+          "name": "Diverum | Automatización para clínicas",
+          "publisher": { "@id": "https://diverum.com/#organization" },
+          "inLanguage": ["es", "en"]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://diverum.com/#webpage",
+          "url": "https://diverum.com/",
+          "name": "Diverum | Automatización para clínicas",
+          "description": "Automatización operativa para clínicas con IA: agenda, admisiones administrativas, recordatorios, tareas internas, reportes y handoffs de facturación sin acceso a PHI.",
+          "isPartOf": { "@id": "https://diverum.com/#website" },
+          "about": { "@id": "https://diverum.com/#service" },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://diverum.com/og-image.png",
+            "width": 1200,
+            "height": 630
+          },
+          "inLanguage": "es"
+        },
+        {
+          "@type": "Service",
+          "@id": "https://diverum.com/#service",
+          "name": "Automatización para clínicas",
+          "serviceType": "Automatización operativa clínica con IA",
+          "provider": { "@id": "https://diverum.com/#organization" },
+          "audience": {
+            "@type": "MedicalAudience",
+            "audienceType": "Clínicas y organizaciones de salud"
+          },
+          "areaServed": [
+            { "@type": "Country", "name": "Colombia" },
+            { "@type": "Country", "name": "United States" }
+          ],
+          "description": "Diseño e implementación de automatizaciones para agenda, admisiones administrativas, recordatorios, tareas internas, reportes y handoffs de facturación sin recolectar, procesar ni almacenar PHI."
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://diverum.com/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "¿Qué procesos de una clínica puede automatizar Diverum?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Automatizamos admisiones administrativas, agenda, recordatorios, enrutamiento de tareas, actualizaciones de estado, reportes operativos y handoffs de facturación."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Diverum se conecta con las herramientas actuales de mi clínica?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sí. Integramos herramientas operativas como CRM, facturación, formularios, calendarios, correo, mensajería, tableros de tareas y plataformas internas mediante flujos a medida."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Diverum accede a PHI o actúa como Business Associate bajo HIPAA?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Diverum no recolecta, procesa, almacena ni transmite PHI, no presta servicios HIPAA-compliant y no firma Business Associate Agreements."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Cuánto tarda una clínica en lanzar su primera automatización?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Las integraciones simples pueden salir en días. Los sistemas conectados más grandes inician con auditoría de flujos, luego construcción, pruebas, despliegue y monitoreo."
+              }
+            }
+          ]
+        }
       ]
     }
   </script>
@@ -80,6 +181,18 @@
   React will take over this div and render the entire UI inside it.
 -->
 <div id="root"></div>
+
+<noscript>
+  <section style="max-width: 760px; margin: 48px auto; padding: 24px; font-family: Arial, sans-serif; color: #0f2b3c;">
+    <h1>Diverum | Automatización para clínicas</h1>
+    <p>
+      Diverum diseña e implementa automatización operativa para clínicas con IA:
+      agenda, admisiones administrativas, recordatorios, tareas internas, reportes
+      y handoffs de facturación sin recolectar, procesar ni almacenar PHI.
+    </p>
+    <p>Activa JavaScript para ver la experiencia completa del sitio.</p>
+  </section>
+</noscript>
 
 <!--
   Entry point for the Vite + React application.

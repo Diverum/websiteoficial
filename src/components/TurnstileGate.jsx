@@ -2,6 +2,12 @@ import { useState, useEffect, useRef } from "react";
 
 const SITE_KEY = "0x4AAAAAAC9t5adb-l49YeoK";
 
+const crawlerPattern = /(googlebot|adsbot-google|mediapartners-google|bingbot|slurp|duckduckbot|baiduspider|yandexbot|applebot|facebookexternalhit|facebot|twitterbot|linkedinbot|whatsapp|telegrambot|slackbot|discordbot|semrushbot|ahrefsbot|mj12bot)/i;
+
+function isKnownCrawler() {
+  return typeof navigator !== "undefined" && crawlerPattern.test(navigator.userAgent);
+}
+
 const LogoPlanet = ({ style }) => (
   <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg" style={style}>
     <defs>
@@ -24,13 +30,15 @@ const LogoPlanet = ({ style }) => (
 );
 
 export default function TurnstileGate({ children }) {
-  const [verified, setVerified] = useState(false);
+  const [verified, setVerified] = useState(() => isKnownCrawler());
   const [fadeOut, setFadeOut] = useState(false);
   const widgetRef = useRef(null);
   const rendered = useRef(false);
   const canvasRef = useRef(null);
 
   useEffect(() => {
+    if (verified) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -60,9 +68,11 @@ export default function TurnstileGate({ children }) {
     };
     draw();
     return () => { cancelAnimationFrame(animId); window.removeEventListener("resize", resize); };
-  }, []);
+  }, [verified]);
 
   useEffect(() => {
+    if (verified) return;
+
     const interval = setInterval(() => {
       if (window.turnstile && widgetRef.current && !rendered.current) {
         clearInterval(interval);
@@ -75,7 +85,7 @@ export default function TurnstileGate({ children }) {
       }
     }, 100);
     return () => clearInterval(interval);
-  }, []);
+  }, [verified]);
 
   if (verified) return children;
 
@@ -398,7 +408,7 @@ export default function TurnstileGate({ children }) {
           color: "rgba(232,236,240,0.45)", fontSize: 12, marginTop: 8,
           letterSpacing: 5, textTransform: "uppercase", fontWeight: 500,
         }}>
-          Healthcare Automation
+          Clinic Automation
         </p>
       </div>
 

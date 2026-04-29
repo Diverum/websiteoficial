@@ -117,7 +117,7 @@ No somos una agencia que entrega herramientas genéricas. Somos un socio estrat�
     whyUs: {
       title: "Por qué nos eligen",
       items: [
-        { title: "Enfoque sectorial", desc: "Conocemos las particularidades de clínicas y centros médicos: la sensibilidad de los datos de pacientes, la importancia de no perder una cita, la necesidad de comunicación multicanal y la presión por demostrar retorno sobre la inversión." },
+        { title: "Enfoque sectorial", desc: "Conocemos las particularidades operativas de clínicas y centros médicos: la importancia de no perder una cita, coordinar equipos, mantener límites claros de datos y demostrar retorno sobre la inversión." },
         { title: "Ejecución profesional", desc: "Cada proyecto cuenta con alcance definido, cronograma claro, entregables concretos y documentación técnica. Sin sorpresas, sin improvisaciones." },
         { title: "Estándares de seguridad", desc: "Aplicamos cifrado en tránsito, controles de acceso basados en roles y buenas prácticas de protección de datos. Nuestra Política de Tratamiento de Datos se rige por la Ley 1581 de 2012 y normativas complementarias." },
         { title: "Visión de negocio, no solo técnica", desc: "La tecnología debe responder a objetivos comerciales concretos: más pacientes atendidos, menos tiempo perdido, mayor retención, mejor experiencia. Todo lo que implementamos tiene una razón de negocio clara." },

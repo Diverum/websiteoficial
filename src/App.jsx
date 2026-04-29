@@ -16,59 +16,116 @@ import Hero from "./components/Hero";
 import Services from "./components/Services";
 import Process from "./components/Process";
 import WhyDiverum from "./components/WhyDiverum";
+import FAQ from "./components/FAQ";
 import BookCall from "./components/BookCall";
 import Footer from "./components/Footer";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import AboutUs from "./pages/AboutUs";
+import { usePageSeo } from "./seo";
 import "./App.css";
 
 // Lee la cookie geo_country que setea el middleware de Vercel
-function getGeoCountryCookie() {
+function getCookie(name) {
   const match = document.cookie
     .split("; ")
-    .find((c) => c.startsWith("geo_country="));
+    .find((c) => c.startsWith(`${name}=`));
   return match ? match.split("=")[1] : null;
+}
+
+function getGeoCountryCookie() {
+  return getCookie("geo_country");
+}
+
+function hasEdgeGeoCookie() {
+  return getCookie("geo_source") === "edge";
+}
+
+function setGeoCookies(country) {
+  document.cookie = `geo_country=${country}; Path=/; SameSite=Lax; Max-Age=3600`;
+  document.cookie = `geo_source=client; Path=/; SameSite=Lax; Max-Age=3600`;
+}
+
+function normalizeCountry(country) {
+  return country?.toUpperCase() === "US" ? "US" : "CO";
+}
+
+function toEnglishPath(pathname) {
+  if (pathname === "/" || pathname === "") return "/en";
+  if (pathname.startsWith("/en")) return pathname;
+  return `/en${pathname}`;
+}
+
+function toSpanishPath(pathname) {
+  if (pathname === "/en" || pathname === "/en/") return "/";
+  if (pathname.startsWith("/en/")) return pathname.replace(/^\/en/, "") || "/";
+  return pathname || "/";
 }
 
 // Hook compartido para geo + lang + theme
 function useGeoLang(langOverride) {
-  const [geoReady, setGeoReady] = useState(false);
-  const [country, setCountry] = useState(getGeoCountryCookie() || null);
-  const [lang, setLang] = useState(langOverride || "es");
-  const [theme, setTheme] = useState("light");
   const navigate = useNavigate();
+  const location = useLocation();
+  const initialCountry = normalizeCountry(getGeoCountryCookie());
+  const [geoReady, setGeoReady] = useState(false);
+  const [country, setCountry] = useState(initialCountry);
+  const [lang, setLang] = useState(langOverride || countryToLang[initialCountry] || "es");
+  const [theme, setTheme] = useState("light");
 
   useEffect(() => {
-    const cookieCountry = getGeoCountryCookie();
-    if (cookieCountry) {
-      setCountry(cookieCountry);
-      if (!langOverride) {
-        setLang(countryToLang[cookieCountry] || "es");
+    let cancelled = false;
+
+    const applyCountry = (rawCountry, { persist = false, route = true } = {}) => {
+      if (cancelled) return;
+
+      const code = normalizeCountry(rawCountry);
+      const nextLang = langOverride || countryToLang[code] || "es";
+
+      setCountry(code);
+      setLang(nextLang);
+      if (persist) setGeoCookies(code);
+
+      if (route) {
+        const isEnglishPath =
+          location.pathname === "/en" || location.pathname.startsWith("/en/");
+
+        if (code === "US" && !isEnglishPath) {
+          navigate(toEnglishPath(location.pathname), { replace: true });
+        }
+
+        if (code !== "US" && isEnglishPath) {
+          navigate(toSpanishPath(location.pathname), { replace: true });
+        }
       }
+
       setGeoReady(true);
-      return;
+    };
+
+    const edgeCountry = hasEdgeGeoCookie() ? getGeoCountryCookie() : null;
+
+    if (edgeCountry) {
+      applyCountry(edgeCountry);
+      return () => {
+        cancelled = true;
+      };
     }
 
-    fetch("https://ip-api.com/json/?fields=countryCode")
+    fetch("https://ipapi.co/json/")
       .then((res) => res.json())
       .then((data) => {
-        const code = data.countryCode || "US";
-        setCountry(code);
-        document.cookie = `geo_country=${code}; Path=/; SameSite=Lax; Max-Age=86400`;
-        if (!langOverride) {
-          setLang(countryToLang[code] || "es");
-        }
-        if (code === "US" && !langOverride) {
-          navigate("/en", { replace: true });
-        }
+        applyCountry(data.country_code || data.countryCode, { persist: true });
       })
       .catch(() => {
-        setCountry("US");
-        if (!langOverride) setLang("en");
+        applyCountry("CO", { persist: true });
       })
-      .finally(() => setGeoReady(true));
-  }, [langOverride, navigate]);
+      .finally(() => {
+        if (!cancelled) setGeoReady(true);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [langOverride, location.pathname, navigate]);
 
   const t = content[lang];
   const p = theme === "dark" ? paletteDark : paletteLight;
@@ -151,6 +208,7 @@ function siteStyles(p) {
 function SitePage({ langOverride }) {
   const { geoReady, lang, theme, setTheme, tWithRegulation, p } = useGeoLang(langOverride);
   const location = useLocation();
+  usePageSeo(lang, "home");
 
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -179,6 +237,7 @@ function SitePage({ langOverride }) {
         <Services t={tWithRegulation} p={p} />
         <Process t={tWithRegulation} p={p} />
         <WhyDiverum t={tWithRegulation} p={p} />
+        <FAQ t={tWithRegulation} p={p} />
         <BookCall t={tWithRegulation} p={p} lang={lang} />
         <Footer t={tWithRegulation} p={p} lang={lang} />
       </div>
@@ -190,6 +249,7 @@ function SitePage({ langOverride }) {
 function PrivacyPage({ langOverride }) {
   const { geoReady, lang, theme, setTheme, tWithRegulation, p } = useGeoLang(langOverride);
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  usePageSeo(lang, "privacy");
 
   if (!geoReady) return null;
 
@@ -205,6 +265,7 @@ function PrivacyPage({ langOverride }) {
 function TermsPage({ langOverride }) {
   const { geoReady, lang, theme, setTheme, tWithRegulation, p } = useGeoLang(langOverride);
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  usePageSeo(lang, "terms");
 
   if (!geoReady) return null;
 
@@ -220,6 +281,7 @@ function TermsPage({ langOverride }) {
 function AboutPage({ langOverride }) {
   const { geoReady, lang, theme, setTheme, tWithRegulation, p } = useGeoLang(langOverride);
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  usePageSeo(lang, "about");
 
   if (!geoReady) return null;
 

@@ -10,7 +10,6 @@ import {
   countryStories,
 } from "./content";
 
-import TurnstileGate from "./components/TurnstileGate";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
@@ -204,7 +203,7 @@ function siteStyles(p) {
   };
 }
 
-// ─── Homepage (with TurnstileGate) ───
+// ─── Homepage ───
 function SitePage({ langOverride }) {
   const { geoReady, lang, theme, setTheme, tWithRegulation, p } = useGeoLang(langOverride);
   const location = useLocation();
@@ -230,22 +229,20 @@ function SitePage({ langOverride }) {
   if (!geoReady) return null;
 
   return (
-    <TurnstileGate>
-      <div className="site-root" style={siteStyles(p)}>
-        <Navbar t={tWithRegulation} lang={lang} theme={theme} setTheme={setTheme} scrollTo={scrollTo} p={p} />
-        <Hero t={tWithRegulation} scrollTo={scrollTo} p={p} />
-        <Services t={tWithRegulation} p={p} />
-        <Process t={tWithRegulation} p={p} />
-        <WhyDiverum t={tWithRegulation} p={p} />
-        <FAQ t={tWithRegulation} p={p} />
-        <BookCall t={tWithRegulation} p={p} lang={lang} />
-        <Footer t={tWithRegulation} p={p} lang={lang} />
-      </div>
-    </TurnstileGate>
+    <div className="site-root" style={siteStyles(p)}>
+      <Navbar t={tWithRegulation} lang={lang} theme={theme} setTheme={setTheme} scrollTo={scrollTo} p={p} />
+      <Hero t={tWithRegulation} scrollTo={scrollTo} p={p} />
+      <Services t={tWithRegulation} p={p} />
+      <Process t={tWithRegulation} p={p} />
+      <WhyDiverum t={tWithRegulation} p={p} />
+      <FAQ t={tWithRegulation} p={p} />
+      <BookCall t={tWithRegulation} p={p} lang={lang} />
+      <Footer t={tWithRegulation} p={p} lang={lang} />
+    </div>
   );
 }
 
-// ─── Legal & info pages (NO TurnstileGate) ───
+// ─── Legal & info pages ───
 function PrivacyPage({ langOverride }) {
   const { geoReady, lang, theme, setTheme, tWithRegulation, p } = useGeoLang(langOverride);
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
